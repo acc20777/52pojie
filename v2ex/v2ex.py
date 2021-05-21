@@ -24,9 +24,7 @@ class V2exCheckIn:
         )
         urls = re.findall(pattern=pattern, string=response.text)
         url = urls[0] if urls else None
-        if url is None:
-            return "cookie 可能过期"
-        elif url != "/balance":
+        if url != "/balance":
             headers = {"Referer": "https://www.v2ex.com/mission/daily"}
             data = {"once": url.split("=")[-1]}
             _ = session.get(url="https://www.v2ex.com" + url, verify=False, headers=headers, params=data)
@@ -52,12 +50,6 @@ class V2exCheckIn:
             item.split("=")[0]: item.split("=")[1] for item in self.check_item.get("v2ex_cookie").split("; ")
         }
         session = requests.session()
-        if self.check_item.get("v2ex_proxy", ""):
-            proxies = {
-                "http": self.check_item.get("v2ex_proxy", ""),
-                "https": self.check_item.get("v2ex_proxy", ""),
-            }
-            session.proxies.update(proxies)
         requests.utils.add_dict_to_cookiejar(session.cookies, v2ex_cookie)
         session.headers.update(
             {

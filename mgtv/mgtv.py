@@ -29,7 +29,10 @@ class MgtvCheckIn:
             "uuid": params.get("uuid"),
         }
         try:
-            user_info = requests.get(url="https://homepage.bz.mgtv.com/v2/user/userInfo", params=user_params).json()
+            user_info = requests.get(
+                url="https://homepage.bz.mgtv.com/v2/user/userInfo",
+                params=user_params
+            ).json()
             username = user_info.get("data", {}).get("nickName")
         except Exception as e:
             print("获取用户信息失败", e)
@@ -53,7 +56,7 @@ class MgtvCheckIn:
         return msg
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     with open(
         os.path.join(os.path.dirname(os.path.dirname(__file__)), "config/config.json"), "r", encoding="utf-8"
     ) as f:

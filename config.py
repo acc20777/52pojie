@@ -5,9 +5,8 @@ import os
 from acfun import AcFunCheckIn
 from baidu_url_submit import BaiduUrlSubmit
 from bilibili import BiliBiliCheckIn
+from caiyun import CaiYunCheckIn
 from cloud189 import Cloud189CheckIn
-from csdn import CSDNCheckIn
-from duokan import DuoKanCheckIn
 from fmapp import FMAPPCheckIn
 from iqiyi import IQIYICheckIn
 from kgqq import KGQQCheckIn
@@ -24,11 +23,9 @@ from tieba import TiebaCheckIn
 from v2ex import V2exCheckIn
 from vqq import VQQCheckIn
 from weather import Weather
-from weibo import WeiBoCheckIn
-from womail import WoMailCheckIn
 from wps import WPSCheckIn
 from www2nzz import WWW2nzzCheckIn
-from wzyd import WZYDCheckIn
+from xmly import XMLYCheckIn
 from youdao import YouDaoCheckIn
 from zhiyoo import ZhiyooCheckIn
 
@@ -55,13 +52,10 @@ checkin_map = {
     "POJIE_COOKIE_LIST": ("吾爱破解", PojieCheckIn),
     "MEIZU_COOKIE_LIST": ("MEIZU社区", MeizuCheckIn),
     "PICACOMIC_ACCOUNT_LIST": ("哔咔漫画", PicacomicCheckIn),
+    "CAIYUN_COOKIE_LIST": ("和彩云", CaiYunCheckIn),
     "ZHIYOO_COOKIE_LIST": ("智友邦", ZhiyooCheckIn),
-    "WEIBO_COOKIE_LIST": ("微博", WeiBoCheckIn),
-    "DUOKAN_COOKIE_LIST": ("多看阅读", DuoKanCheckIn),
-    "CSDN_COOKIE_LIST": ("CSDN", CSDNCheckIn),
-    "WZYD_DATA_LIST": ("王者营地", WZYDCheckIn),
-    "WOMAIL_URL_LIST": ("沃邮箱", WoMailCheckIn),
     "CITY_NAME_LIST": ("天气预报", Weather),
+    "XMLY_COOKIE_LIST": ("喜马拉雅极速版", XMLYCheckIn),
 }
 
 notice_map = {
@@ -72,8 +66,6 @@ notice_map = {
     "SENDKEY": "",
     "TG_BOT_TOKEN": "",
     "TG_USER_ID": "",
-    "TG_API_HOST": "",
-    "TG_PROXY": "",
     "QMSG_KEY": "",
     "QMSG_TYPE": "",
     "COOLPUSHSKEY": "",
@@ -159,5 +151,5 @@ def get_notice_info(data):
     return result
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     env2config(save_file=True)
